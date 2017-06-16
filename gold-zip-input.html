@@ -137,8 +137,11 @@ style this element.
           // If the character right before the selection is a newly inserted
           // dash, we need to advance the selection to maintain the caret position.
           if (!previousCharADash && value.charAt(start - 1) === '-') {
-            this.$.input.selectionStart = start + 1;
-            this.$.input.selectionEnd = start + 1;
+            var that = this;
+            setTimeout(function() {
+              that.$.input.selectionStart = start + 1;
+              that.$.input.selectionEnd = start + 1;
+            }, 10);
           }
         }
 
